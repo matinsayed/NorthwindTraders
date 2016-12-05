@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="NorthwindTraders.Site1" %>
+
+<%@ Register Src="_UserControls/_Cart.ascx" TagName="_Cart" TagPrefix="uc1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+
+        .auto-style2 {
+            width: 79px;
+            height: 78px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <table class="auto-style1">
+                        <tr>
+                            <td style="width: 75px">
+                                <img alt="" class="auto-style2" src="Images/Social.jpg" /></td>
+                            <td>
+                                <h2>Northwind Traders</h2>
+&nbsp;<h3>Shop till you drop...</h3>
+                            </td>
+                            <td style="width: 125px">
+                                <uc1:_Cart ID="_Cart1" runat="server" />
+                            </td>
+                            <td style="width: 125px">
+                                <asp:LoginView ID="LoginView1" runat="server">
+                                    <AnonymousTemplate>
+                                        Welcome Guest,
+                                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                                        &nbsp;| <a href="register.aspx">Register</a>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        Welcome
+                                        <asp:LoginName ID="LoginName1" runat="server" />
+                                        ,
+                                        <asp:LoginStatus ID="LoginStatus2" runat="server" />
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </td>
+                        </tr>
+                    </table>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Menu ID="Menu1" runat="server" BackColor="#FFFBD6" DataSourceID="SiteMapDataSource1" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" Orientation="Horizontal" StaticDisplayLevels="2" StaticSubMenuIndent="10px" Width="100%">
+                        <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicMenuStyle BackColor="#FFFBD6" />
+                        <DynamicSelectedStyle BackColor="#FFCC66" />
+                        <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+                        <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="10px" />
+                        <StaticSelectedStyle BackColor="#FFCC66" />
+                    </asp:Menu>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>Copyright. All right reserved. 2016 - <%=DateTime.Now.Year + 1 %>
+                    <br />
+                    Developed by ITP.
+                    <br />
+                    Total Visitors till date :
+                    <asp:Label Text="0" ID="lblTotalVisitors" runat="server" />
+                    <br />
+                    Active Visitors  :
+                    <asp:Label Text="0" ID="lblActiveVisitors" runat="server" />
+                    <br />
+
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+
